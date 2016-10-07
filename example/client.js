@@ -15,7 +15,7 @@ const app = feathers()
 
 app.authenticate({
   type: 'local',
-  'email': 'admin@feathersjs.com',
+  'username': 'admin',
   'password': 'admin'
 }).then(function(result){
   console.log(`Successfully authenticated against ${host}!`, result);

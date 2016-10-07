@@ -17,7 +17,10 @@ var app = feathers()
   .use(bodyParser.urlencoded({ extended: true }))
   // Configure feathers-authentication
   .configure(authentication({
-    idField: 'id'
+    idField: 'id',
+    local: {
+      usernameFields: ['email', 'username']
+    }
   }))
   // Initialize a user service
   .use('/users', memory())
@@ -87,6 +90,7 @@ userService.before({
 // Create a user that we can use to log in
 var User = {
   email: 'admin@feathersjs.com',
+  username: 'admin',
   password: 'admin',
   roles: ['admin']
 };
